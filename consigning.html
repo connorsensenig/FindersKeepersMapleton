@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How Consigning Works - Finders Keepers Mapleton</title>
+<meta name="description" content="Learn how consigning works at Finders Keepers Mapleton - book an appointment, drop off your items, and get paid when they sell." />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .page-hero {
+    background: var(--warm-white);
+    padding: 6rem 4rem 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+
+  .page-hero p {
+    font-size: 1rem;
+    color: var(--brown-mid);
+    max-width: 480px;
+  }
+
+  /* ── STEPS ── */
+  .steps-section {
+    background: var(--charcoal);
+  }
+
+  .steps-section .section-title { color: #EDE8E0; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    border: 1px solid rgba(184,154,106,0.2);
+  }
+
+  .step-col {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid rgba(184,154,106,0.15);
+    transition: background 0.25s ease;
+  }
+
+  .step-col:hover { background: rgba(184,154,106,0.06); }
+
+  .step-col:last-child { border-right: none; }
+
+  .step-num-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.35;
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .step-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #EDE8E0;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-col p {
+    font-size: 0.83rem;
+    color: var(--brown-light);
+    line-height: 1.8;
+  }
+
+  .step-note {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    border-left: 2px solid var(--gold);
+    background: rgba(184,154,106,0.05);
+  }
+
+  .step-note p {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    line-height: 1.8;
+  }
+
+  .step-note strong {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  /* ── TERMS ── */
+  .terms-section {
+    background: var(--cream);
+  }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .term-card {
+    padding: 2rem;
+    border: 1px solid var(--border);
+    background: var(--warm-white);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .term-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(44, 40, 32, 0.07);
+    border-color: var(--border-strong);
+  }
+
+  .term-card h4 {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .term-card .term-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+
+  .term-card p {
+    font-size: 0.82rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+  }
+
+  /* ── TIPS ── */
+  .tips-section {
+    background: var(--warm-white);
+  }
+
+  .tips-section .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .tip-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .tip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .tip-item p {
+    font-size: 0.88rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+    border: 1px solid var(--border);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    transition: background 0.2s ease;
+  }
+
+  .faq-q:hover { background: var(--cream); }
+
+  .faq-arrow {
+    color: var(--gold);
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item.open .faq-a { max-height: 200px; }
+
+  .faq-a-inner {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.85rem;
+    color: var(--brown-mid);
+    line-height: 1.8;
+  }
+
+  /* ── CTA ── */
+  .consign-cta {
+    background: var(--gold);
+    text-align: center;
+    padding: 5rem 4rem;
+  }
+
+  .consign-cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .consign-cta p {
+    font-size: 0.9rem;
+    color: rgba(253,252,250,0.8);
+    max-width: 440px;
+    margin: 0 auto 2rem;
+  }
+
+  .btn-white {
+    display: inline-block;
+    padding: 0.9rem 2.25rem;
+    background: var(--warm-white);
+    color: var(--gold-dark);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-white:hover { background: var(--cream); }
+
+  /* ── MAP ── */
+  .map-section { background: var(--charcoal); }
+  .map-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 4rem; }
+  .map-embed {
+    width: 100%;
+    height: 380px;
+    border: 1px solid rgba(184,154,106,0.2);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 5rem 1.5rem 3rem; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .step-col { border-right: none; border-bottom: 1px solid rgba(184,154,106,0.15); }
+    .step-col:last-child { border-bottom: none; }
+    .terms-grid { grid-template-columns: 1fr !important; }
+    .tips-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .map-inner { padding: 3rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Finders Keepers Mapleton" /></a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">How It Works</a></li>
+    <li><a href="appointment.html">Book Appointment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label">The Process</p>
+      <h1>How <em>consigning</em><br>works</h1>
+      <p>Consigning with us is simple, straightforward, and designed to get you the best return on your items. Here's exactly what to expect.</p>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="steps-section">
+    <div class="section-inner">
+      <p class="section-label" style="color:var(--gold-light);">Step by Step</p>
+      <h2 class="section-title">The <em>process</em></h2>
+      <div class="divider"></div>
+
+      <div class="steps-grid">
+        <div class="step-col">
+          <div class="step-num-big">01</div>
+          <h3>Book an Appointment</h3>
+          <p>All drop-offs are by <strong style="font-weight:400; color:#EDE8E0;">confirmed appointment only</strong> - no walk-ins. Schedule online or give us a call, Monday through Saturday.</p>
+        </div>
+        <div class="step-col">
+          <div class="step-num-big">02</div>
+          <h3>We Review Your Items</h3>
+          <p>Bring your items in <strong style="color:#EDE8E0;">one white kitchen-sized bag.</strong> Our staff reviews each piece for condition, completeness, and resale appeal - and lets you know what's accepted on the spot.</p>
+        </div>
+        <div class="step-col">
+          <div class="step-num-big">03</div>
+          <h3>We Price &amp; Display</h3>
+          <p>Accepted items are priced at the discretion of our staff and beautifully displayed in-store. We know our customers and price to sell.</p>
+        </div>
+        <div class="step-col">
+          <div class="step-num-big">04</div>
+          <h3>You Get Paid</h3>
+          <p>When your item sells, you receive your split - paid out monthly by check. It's that simple. (Once total split equals a minimum of $15)</p>
+        </div>
+      </div>
+
+      <div class="step-note">
+        <p><strong>New to consigning?</strong> No worries - our staff walks you through everything at your appointment. Items must be clean, complete, and fit in one standard kitchen-sized bag. Questions? Give us a call before you come in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICY -->
+  <section class="terms-section">
+    <div class="section-inner">
+      <p class="section-label">Drop-Off Policy</p>
+      <h2 class="section-title">What we <em>accept</em></h2>
+      <div class="divider"></div>
+
+      <div class="terms-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+
+        <!-- ACCEPTED -->
+        <div style="border: 1px solid var(--border); background: var(--warm-white); padding: 2rem;">
+          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem;">✦ We Gladly Accept</div>
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div>
+                <div style="font-size:0.85rem; font-weight:400; color:var(--charcoal); margin-bottom:0.2rem;">Clean, Gently Used or New Items</div>
+                <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.6;">Freshly cleaned, free of stains, odors, pet hair, or damage - in excellent condition.</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div>
+                <div style="font-size:0.85rem; font-weight:400; color:var(--charcoal); margin-bottom:0.2rem;">Complete &amp; Functional Items</div>
+                <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.6;">Fully operational (if applicable) and including all necessary pieces and parts.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOT ACCEPTED -->
+        <div style="border: 1px solid rgba(184,154,106,0.3); background: var(--cream); padding: 2rem;">
+          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--brown-mid); margin-bottom:1.25rem;">✕ We Do Not Accept</div>
+          <div style="display:flex; flex-direction:column; gap:0.85rem;">
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; background:var(--brown-light); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.5;"><span style="color:var(--charcoal); font-weight:400;">Promotional or company branded items</span> - cups, branded tees, tote bags, pens, etc.</div>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; background:var(--brown-light); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.5;"><span style="color:var(--charcoal); font-weight:400;">Damaged or unsanitary items</span> - stains, holes, odors, broken parts, or excessive wear.</div>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; background:var(--brown-light); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.5;"><span style="color:var(--charcoal); font-weight:400;">Personalized or custom items</span> - anything with names, dates, or custom printing.</div>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; background:var(--brown-light); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.5;"><span style="color:var(--charcoal); font-weight:400;">Personal care or hygiene products</span> - cosmetics, lotions, or similar items.</div>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; background:var(--brown-light); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.5;"><span style="color:var(--charcoal); font-weight:400;">Incomplete sets</span> - items missing essential components or pieces.</div>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <div style="width:6px; height:6px; background:var(--brown-light); margin-top:0.55rem; flex-shrink:0;"></div>
+              <div style="font-size:0.8rem; color:var(--brown-mid); line-height:1.5;"><span style="color:var(--charcoal); font-weight:400;">For hygiene reasons</span> - we do not accept used or previously worn underwear or socks. </span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DROP-OFF RULES -->
+      <div style="margin-top:2rem; border:1px solid var(--border-strong); background:var(--warm-white); padding:2rem;">
+        <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem;">Drop-Off Guidelines</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+            <div style="color:var(--gold); font-size:0.85rem; margin-top:0.1rem; flex-shrink:0;">✦</div>
+            <p style="font-size:0.84rem; color:var(--brown-mid); line-height:1.7; margin:0;"><strong style="color:var(--charcoal); font-weight:400;">Confirmed appointments only.</strong> Items will not be reviewed without a scheduled, confirmed appointment.</p>
+          </div>
+          <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+            <div style="color:var(--gold); font-size:0.85rem; margin-top:0.1rem; flex-shrink:0;">✦</div>
+            <p style="font-size:0.84rem; color:var(--brown-mid); line-height:1.7; margin:0;"><strong style="color:var(--charcoal);">One white kitchen-sized bag per appointment.</strong> Please limit your items to what fits in one standard kitchen bag.</p>
+          </div>
+          <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+            <div style="color:var(--gold); font-size:0.85rem; margin-top:0.1rem; flex-shrink:0;">✦</div>
+            <p style="font-size:0.84rem; color:var(--brown-mid); line-height:1.7; margin:0;"><strong style="color:var(--charcoal); font-weight:400;">All items subject to final inspection</strong> and approval by shop staff at the time of drop-off.</p>
+          </div>
+          <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+            <div style="color:var(--gold); font-size:0.85rem; margin-top:0.1rem; flex-shrink:0;">✦</div>
+            <p style="font-size:0.84rem; color:var(--brown-mid); line-height:1.7; margin:0;"><strong style="color:var(--charcoal); font-weight:400;">Pricing is set at the discretion</strong> of our shop staff. We appreciate your trust in our process.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIPS + FAQ -->
+  <section class="tips-section">
+    <div class="section-inner">
+      <div>
+        <p class="section-label">Preparation Tips</p>
+        <h2 class="section-title">Set yourself<br>up for <em>success</em></h2>
+        <div class="divider"></div>
+        <div class="tips-list">
+              <div class="tip-item">
+                <div class="tip-dot"></div>
+                <p>All items must fit into <strong style="color:var(--charcoal);">one standard white kitchen-sized bag</strong> per appointment - plan accordingly before you come in.</p>
+              </div>
+              <div class="tip-item">
+                <div class="tip-dot"></div>
+                <p>Make sure everything is <strong style="font-weight:400; color:var(--charcoal);">freshly cleaned</strong> and free of stains, odors, and pet hair before your appointment.</p>
+              </div>
+              <div class="tip-item">
+                <div class="tip-dot"></div>
+                <p>Check that all items are <strong style="font-weight:400; color:var(--charcoal);">complete and functional</strong> - sets must have all parts, and anything with moving pieces should be in working order.</p>
+              </div>
+              <div class="tip-item">
+                <div class="tip-dot"></div>
+                <p>Leave behind anything personalized, custom-printed, or monogrammed - these items don't have broad resale appeal and won't be accepted.</p>
+              </div>
+              <div class="tip-item">
+                <div class="tip-dot"></div>
+                <p>Cosmetics, lotions, and personal care or hygiene products are not accepted under any circumstances.</p>
+              </div>
+              <div class="tip-item">
+                <div class="tip-dot"></div>
+                <p>Promotional items - company branded cups, tote bags, event t-shirts, pens - are not eligible for consignment.</p>
+              </div>
+            </div>
+      </div>
+
+      <div>
+        <p class="section-label">Common Questions</p>
+        <h2 class="section-title">Frequently <em>asked</em></h2>
+        <div class="divider"></div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Do I need an appointment to drop off items?
+              <span class="faq-arrow">›</span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">Yes - all consignment drop-offs are by appointment only. This ensures we have enough time to properly review your items and give you our full attention. Walk-in shopping is always welcome though!</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What happens to items that don't sell?
+              <span class="faq-arrow">›</span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">After the 90-day consignment period, the unsold consigned items become the property of Finders Keepers. Items may be disposed or donated to a local charity at the discression of Finders Keepers.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How do I know when my items sell?
+              <span class="faq-arrow">›</span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">We track all sales, and Finders Keepers will be entitled to a commission of 50% of selling price. Finders Keepers shall deduct the specified commission and will issue a check once a month if the total amount is over $15.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Can I set a minimum price on my items?
+              <span class="faq-arrow">›</span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">We handle all pricing to keep things consistent and competitive, but if you have specific items you'd like to discuss pricing on, bring it up at your appointment and we'll work with you.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Do you accept all brands and styles?
+              <span class="faq-arrow">›</span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">We accept items based on quality and condition, not just brand name. We do love a great label, but if an item is in excellent shape and well-made, we're interested regardless of the brand.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="consign-cta">
+    <h2>Ready to start consigning?</h2>
+    <p>Book your appointment today - it takes just a minute, and we'll take care of everything from there.</p>
+    <a href="appointment.html" class="btn-white">Book an Appointment</a>
+  </div>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="map-inner">
+      <p class="section-label" style="color:var(--gold-light);">Location</p>
+      <h2 class="section-title" style="color:#EDE8E0;">Find us in <em>Mapleton</em></h2>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962!2d-95.7930656!3d42.1666277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8792616080808529%3A0x8f4561260641b2c!2sFinders%20Keepers%20Consignment!5e0!3m2!1sen!2sus!4v1711900000000!5m2!1sen!2sus"
+          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Finders Keepers</div>
+    <div class="footer-tagline">Consignment Shop - Mapleton, Iowa</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">Consigning</a></li>
+    <li><a href="appointment.html">Appointments</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Finders Keepers Mapleton</div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

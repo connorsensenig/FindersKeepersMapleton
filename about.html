@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us - Finders Keepers Mapleton</title>
+<meta name="description" content="Learn about Finders Keepers - a family-owned consignment shop in Mapleton, Iowa, rooted in community, quality, and the joy of the find." />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .page-hero {
+    background: var(--charcoal);
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 24px 24px;
+  }
+
+  .page-hero-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    color: #EDE8E0;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+
+  .page-hero p {
+    font-size: 1rem;
+    color: var(--brown-light);
+    max-width: 480px;
+  }
+
+  /* ── STORY ── */
+  .story-section {
+    background: var(--warm-white);
+  }
+
+  .story-section .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .story-text p {
+    font-size: 0.95rem;
+    color: var(--brown-mid);
+    margin-bottom: 1.25rem;
+    line-height: 1.9;
+  }
+
+  .story-aside {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .story-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .story-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .story-photo:hover img {
+    transform: scale(1.03);
+  }
+
+  .story-quote {
+    border-left: 2px solid var(--gold);
+    padding: 1.5rem 2rem;
+    background: var(--cream);
+  }
+
+  .story-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .story-quote span {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── VALUES ── */
+  .values-section {
+    background: var(--cream);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .value-card {
+    padding: 2.25rem;
+    border: 1px solid var(--border);
+    background: var(--warm-white);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(44, 40, 32, 0.07);
+    border-color: var(--border-strong);
+  }
+
+  .value-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .value-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+  }
+
+  .value-card p {
+    font-size: 0.85rem;
+    color: var(--brown-mid);
+    line-height: 1.7;
+  }
+
+  /* ── WHAT WE ACCEPT ── */
+  .accept-section {
+    background: var(--charcoal);
+  }
+
+  .accept-section .section-title { color: #EDE8E0; }
+
+  .accept-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(184,154,106,0.15);
+    margin-top: 2.5rem;
+    border: 1px solid rgba(184,154,106,0.15);
+  }
+
+  .accept-item {
+    background: var(--charcoal);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.25s ease;
+  }
+
+  .accept-item:hover {
+    background: #33302a;
+  }
+
+  .accept-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #EDE8E0;
+  }
+
+  .accept-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #EDE8E0;
+    margin-bottom: 0.5rem;
+  }
+
+  .accept-item p {
+    font-size: 0.8rem;
+    color: var(--brown-light);
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .about-cta {
+    background: var(--warm-white);
+    text-align: center;
+  }
+
+  .about-cta .section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-cta p {
+    font-size: 0.95rem;
+    color: var(--brown-mid);
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+  /* ── MAP ── */
+  .map-section { background: var(--charcoal); }
+  .map-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 4rem; }
+  .map-embed {
+    width: 100%;
+    height: 380px;
+    border: 1px solid rgba(184,154,106,0.2);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 5rem 1.5rem 3rem; }
+    .story-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .values-grid { grid-template-columns: 1fr; }
+    .accept-grid { grid-template-columns: 1fr 1fr; }
+    .map-inner { padding: 3rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .accept-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Finders Keepers Mapleton" /></a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">How It Works</a></li>
+    <li><a href="appointment.html">Book Appointment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <div class="page-hero-pattern"></div>
+    <div class="page-hero-inner">
+      <p class="section-label" style="color:var(--gold-light);">Our Story</p>
+      <h1>About <em>Finders<br>Keepers</em></h1>
+      <p>A family-owned consignment store rooted in community, quality, and the joy of the find.</p>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <div class="section-inner">
+      <div class="story-text">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">More than a<br><em>consignment shop.</em></h2>
+        <div class="divider"></div>
+        <p>We are a family‑owned business rooted in a lifelong love of thrift shopping, upcycling, and uncovering hidden treasures.</p>
+        <p>We are high school sweethearts and happily married for 30 years with two adult children. We made Mapleton, Iowa our permanent home three years ago after visiting and staying connected through our parents, who have been living here for more than 25 years.</p>
+        <p>Outside of work, we enjoy time with family and friends, traveling, and appreciating God’s beautiful creation.</p>
+        <p>We are grateful for this opportunity and excited to be an active part of the Mapleton community.</p>
+      </div>
+      <div class="story-aside">
+        <div class="story-photo">
+          <img src="images/IMG_4577_SnapseedCopy.jpg" alt="The Finders Keepers family" />
+        </div>
+        <div class="story-quote">
+          <p>"We wanted to create a place where people come for the treasures and stay for the community."</p>
+          <span>- The Finders Keepers Family</span>
+        </div>
+        <div style="padding: 2rem; border: 1px solid var(--border); background: var(--cream);">
+          <p class="section-label">By the Numbers</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1rem;">
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1;">100%</div>
+              <div style="font-size:0.78rem; color:var(--brown-mid); margin-top:0.25rem;">Locally owned &amp; operated</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1;">90</div>
+              <div style="font-size:0.78rem; color:var(--brown-mid); margin-top:0.25rem;">Day consignment period</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1;">Fair</div>
+              <div style="font-size:0.78rem; color:var(--brown-mid); margin-top:0.25rem;">Consignor split - always</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1;">Low</div>
+              <div style="font-size:0.78rem; color:var(--brown-mid); margin-top:0.25rem;">Prices</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- WHAT WE ACCEPT -->
+  <section class="accept-section">
+    <div class="section-inner">
+      <p class="section-label" style="color:var(--gold-light);">What We Sell</p>
+      <h2 class="section-title">What we <em>accept</em></h2>
+      <div class="divider"></div>
+      <div class="accept-grid">
+        <div class="accept-item">
+          <div class="accept-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 18.01L12 12 3.62 18.01A1 1 0 004 20h16a1 1 0 00.38-1.99z"/><path d="M12 12V8"/><path d="M8 8L4 5l3.5-2"/><path d="M16 8l4-3-3.5-2"/><path d="M9.5 5a2.5 2.5 0 005 0"/></svg>
+          </div>
+          <h4>Clothing</h4>
+          <p>Women's, men's, and children's - clean, gently worn, in-season or classic styles.</p>
+        </div>
+        <div class="accept-item">
+          <div class="accept-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </div>
+          <h4>Accessories</h4>
+          <p>Handbags, jewelry, scarves, belts, and more. Quality pieces with character.</p>
+        </div>
+        <div class="accept-item">
+          <div class="accept-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Home Décor</h4>
+          <p>Art, frames, vases, and decorative objects in good condition.</p>
+        </div>
+        <div class="accept-item">
+          <div class="accept-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4>Unique Finds</h4>
+          <p>Vintage items, collectibles, and special pieces that don't fit neatly in a category.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <div class="section-inner">
+      <p class="section-label">Ready to Get Started?</p>
+      <h2 class="section-title">Come <em>find</em> us - or<br>let us find a home for<br>your items.</h2>
+      <p>Book a consignment appointment or stop in during our store hours to browse. We'd love to meet you.</p>
+      <div class="btn-group">
+        <a href="appointment.html" class="btn-primary">Book an Appointment</a>
+        <a href="contact.html" class="btn-secondary">Find Us in Mapleton</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="map-inner">
+      <p class="section-label" style="color:var(--gold-light);">Location</p>
+      <h2 class="section-title" style="color:#EDE8E0;">Find us in <em>Mapleton</em></h2>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962!2d-95.7930656!3d42.1666277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8792616080808529%3A0x8f4561260641b2c!2sFinders%20Keepers%20Consignment!5e0!3m2!1sen!2sus!4v1711900000000!5m2!1sen!2sus"
+          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Finders Keepers</div>
+    <div class="footer-tagline">Consignment Shop - Mapleton, Iowa</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">Consigning</a></li>
+    <li><a href="appointment.html">Appointments</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Finders Keepers Mapleton</div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

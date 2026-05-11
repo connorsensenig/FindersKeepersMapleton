@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact & Hours - Finders Keepers Mapleton</title>
+<meta name="description" content="Find Finders Keepers Mapleton at 114 N 4th Street, Suite A. Call (712) 881-0208 or email us - we'd love to hear from you." />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .page-hero {
+    background: var(--warm-white);
+    padding: 6rem 4rem 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+
+  .page-hero p {
+    font-size: 1rem;
+    color: var(--brown-mid);
+    max-width: 480px;
+  }
+
+  /* ── CONTACT GRID ── */
+  .contact-section {
+    background: var(--cream);
+  }
+
+  .contact-section .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* ── CONTACT CARDS ── */
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 1.5rem;
+  }
+
+  .contact-card {
+    background: var(--warm-white);
+    padding: 1.75rem 2rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: background 0.2s ease;
+  }
+
+  .contact-card:hover { background: var(--cream); }
+
+  .card-icon-wrap {
+    width: 42px;
+    height: 42px;
+    background: var(--cream);
+    border: 1px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+
+  .card-value {
+    font-size: 1rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+
+  .card-value a {
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .card-value a:hover { color: var(--gold); }
+
+  .card-note {
+    font-size: 0.78rem;
+    color: var(--brown-mid);
+    margin-top: 0.25rem;
+  }
+
+  /* ── HOURS ── */
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+  }
+
+  .hours-table tr:hover { background: rgba(184,154,106,0.06); }
+
+  .hours-table tr:last-child { border-bottom: none; }
+
+  .hours-table td {
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+  }
+
+  .hours-table td:last-child {
+    text-align: right;
+    color: var(--brown-mid);
+  }
+
+  .hours-table .closed td:last-child {
+    color: var(--brown-light);
+    font-style: italic;
+  }
+
+  /* ── MAP PLACEHOLDER ── */
+  .map-section {
+    background: var(--charcoal);
+  }
+
+  .map-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 4rem;
+  }
+
+  .map-embed {
+    width: 100%;
+    height: 380px;
+    border: 1px solid rgba(184,154,106,0.2);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── CTA ── */
+  .contact-cta {
+    background: var(--warm-white);
+    text-align: center;
+    padding: 6rem 4rem;
+  }
+
+  .contact-cta p {
+    font-size: 0.95rem;
+    color: var(--brown-mid);
+    max-width: 460px;
+    margin: 0 auto 2rem;
+  }
+
+  .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 5rem 1.5rem 3rem; }
+    .contact-section .section-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .map-inner { padding: 3rem 1.5rem; }
+    .contact-cta { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Finders Keepers Mapleton" /></a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">How It Works</a></li>
+    <li><a href="appointment.html">Book Appointment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label">Get in Touch</p>
+      <h1>Contact <em>&amp; Hours</em></h1>
+      <p>We'd love to hear from you. Stop in, give us a call, or send us a message - we're always happy to help.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT + HOURS -->
+  <section class="contact-section">
+    <div class="section-inner">
+
+      <div>
+        <p class="section-label">Find Us</p>
+        <h2 class="section-title">Get in <em>touch</em></h2>
+        <div class="divider"></div>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="card-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M12 2C8.686 2 6 4.686 6 8c0 5.5 6 12 6 12s6-6.5 6-12c0-3.314-2.686-6-6-6z"/><circle cx="12" cy="8" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="card-label">Address</div>
+              <div class="card-value"><a href="https://maps.google.com/?q=114+N+4th+Street+Suite+A+Mapleton+IA+51034" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--border);">114 N 4th Street <br>Suite A<br>Mapleton, IA 51034</a></div>
+              <div class="card-note">Located in downtown Mapleton</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.06 4.84 2 2 0 012 2.7h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 17z"/></svg>
+            </div>
+            <div>
+              <div class="card-label">Phone</div>
+              <div class="card-value"><a href="tel:+17128810208">(712) 881-0208</a></div>
+              <div class="card-note">Call or text during store hours</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="card-label">Email</div>
+              <div class="card-value"><a href="mailto:finderskeepersmapleton@gmail.com">finderskeepersmapleton@gmail.com</a></div>
+              <div class="card-note">We typically respond within one business day</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </div>
+            <div>
+              <div class="card-label">Facebook</div>
+              <div class="card-value"><a href="https://www.facebook.com/FindersKeepersMapleton/" target="_blank" rel="noopener noreferrer">Finders Keepers Consignment Shop</a></div>
+              <div class="card-note">Follow us for new arrivals &amp; updates</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div class="card-label">Instagram</div>
+              <div class="card-value"><a href="https://www.instagram.com/finderskeepersmapleton/" target="_blank" rel="noopener noreferrer">@FindersKeepersMapleton</a></div>
+              <div class="card-note">Shop the latest finds on Instagram</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="section-label">Store Hours</p>
+        <h2 class="section-title">When we're <em>open</em></h2>
+        <div class="divider"></div>
+
+        <table class="hours-table">
+          <tr><td>Monday</td><td>10:00 AM – 5:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>10:00 AM – 4:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>10:00 AM – 4:00 PM</td></tr>
+          <tr><td>Thursday</td><td>10:00 AM – 4:00 PM</td></tr>
+          <tr><td>Friday</td><td>10:00 AM – 5:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 1:00 PM</td></tr>
+          <tr class="closed"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+
+        <div style="margin-top:2rem; padding:1.5rem; border:1px solid var(--border); background:var(--warm-white);">
+          <p style="font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem;">Consignment Appointments</p>
+          <p style="font-size:0.85rem; color:var(--brown-mid); line-height:1.8;">Consignment drop-off appointments are available Tuesday through Saturday during store hours. Walk-in shopping is welcome anytime we're open - no appointment needed to browse!</p>
+          <br />
+          <a href="appointment.html" class="btn-primary" style="display:inline-block;">Book an Appointment</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+<!-- MAP PLACEHOLDER -->
+<section class="map-section">
+  <div class="map-inner">
+    <p class="section-label" style="color:var(--gold-light);">Location</p>
+    <h2 class="section-title" style="color:#EDE8E0;">Find us in <em>Mapleton</em></h2>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962!2d-95.7930656!3d42.1666277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8792616080808529%3A0x8f4561260641b2c!2sFinders%20Keepers%20Consignment!5e0!3m2!1sen!2sus!4v1711900000000!5m2!1sen!2sus"
+        style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA -->
+  <section class="contact-cta">
+    <p class="section-label">Ready to Visit?</p>
+    <h2 class="section-title">Come see what's<br><em>waiting</em> for you.</h2>
+    <p>Whether you're here to shop or ready to consign, we'd love to see you. Book an appointment or just come on in during store hours.</p>
+    <div class="btn-group">
+      <a href="appointment.html" class="btn-primary">Book a Consign Appointment</a>
+      <a href="consigning.html" class="btn-secondary">How It Works</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Finders Keepers</div>
+    <div class="footer-tagline">Consignment Shop - Mapleton, Iowa</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">Consigning</a></li>
+    <li><a href="appointment.html">Appointments</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Finders Keepers Mapleton</div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

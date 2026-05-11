@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book an Appointment - Finders Keepers Mapleton</title>
+<meta name="description" content="Schedule a consignment drop-off appointment at Finders Keepers Mapleton. Booking is instant - pick a time and we'll take care of the rest." />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .page-hero {
+    background: var(--charcoal);
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 24px 24px;
+  }
+
+  .page-hero-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    color: #EDE8E0;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+
+  .page-hero p {
+    font-size: 1rem;
+    color: var(--brown-light);
+    max-width: 480px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .appt-section {
+    background: var(--cream);
+  }
+
+  .appt-section .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ── */
+  .appt-sidebar p {
+    font-size: 0.88rem;
+    color: var(--brown-mid);
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .sidebar-checklist {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .check-icon {
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .check-row p {
+    font-size: 0.84rem;
+    color: var(--brown-mid);
+    margin: 0;
+  }
+
+  .sidebar-note {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 2px solid var(--gold);
+    background: var(--warm-white);
+  }
+
+  .sidebar-note p {
+    font-size: 0.82rem;
+    color: var(--brown-mid);
+    margin: 0;
+  }
+
+  .sidebar-note strong {
+    font-weight: 400;
+    color: var(--gold-dark);
+  }
+
+  /* ── CALENDLY EMBED ── */
+  .calendly-wrap {
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: var(--warm-white);
+  }
+
+  .calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 5rem 1.5rem 3rem; }
+    .appt-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .appt-form-wrap { padding: 1.75rem; }
+  }
+
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Finders Keepers Mapleton" /></a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">How It Works</a></li>
+    <li><a href="appointment.html">Book Appointment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <div class="page-hero-pattern"></div>
+    <div class="page-hero-inner">
+      <p class="section-label" style="color:var(--gold-light);">Schedule a Visit</p>
+      <h1>Book a <em>consign</em><br>appointment</h1>
+      <p>Pick a time that works for you - booking is instant and you'll receive a confirmation right away.</p>
+    </div>
+  </div>
+
+  <section class="appt-section">
+    <div class="section-inner">
+
+      <!-- SIDEBAR -->
+      <div class="appt-sidebar">
+        <p class="section-label">Before You Come In</p>
+        <h2 class="section-title">What to<br><em>expect</em></h2>
+        <div class="divider"></div>
+        <p>We review items by appointment only - this lets us give you and your pieces the time and attention they deserve. Here's how to prepare:</p>
+        <div class="sidebar-checklist">
+          <div class="check-row">
+            <div class="check-icon">✦</div>
+            <p>Appointments are available Monday through Saturday during store hours.</p>
+          </div>
+          <div class="check-row">
+            <div class="check-icon">✦</div>
+            <p>All items must fit into <strong style="font-weight:400; color:var(--charcoal);">one white kitchen-sized bag</strong> per appointment.</p>
+          </div>
+          <div class="check-row">
+            <div class="check-icon">✦</div>
+            <p>Items must be clean, freshly cleaned, and free of stains, odors, and pet hair.</p>
+          </div>
+          <div class="check-row">
+            <div class="check-icon">✦</div>
+            <p>Items must be complete and functional - no missing parts or broken pieces.</p>
+          </div>
+          <div class="check-row">
+            <div class="check-icon">✦</div>
+            <p>We do not accept personalized items, promotional giveaways, or personal care products.</p>
+          </div>
+          <div class="check-row">
+            <div class="check-icon">✦</div>
+            <p>All items are subject to final approval by staff. Pricing is set at our discretion.</p>
+          </div>
+        </div>
+        <div class="sidebar-note">
+          <p><strong>First time consigning?</strong> No worries at all - our team will walk you through the entire process at your appointment. Questions beforehand? Just give us a call at <a href="tel:+17128810208" style="color:var(--gold-dark); text-decoration:none;">(712) 881-0208</a>.</p>
+        </div>
+      </div>
+
+      <!-- CALENDLY EMBED -->
+      <div class="calendly-wrap">
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/finderskeepersmapleton/finders-keepers-appointment"
+          
+          data-primary-color="B89A6A">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Finders Keepers</div>
+    <div class="footer-tagline">Consignment Shop - Mapleton, Iowa</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">Consigning</a></li>
+    <li><a href="appointment.html">Appointments</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Finders Keepers Mapleton</div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>

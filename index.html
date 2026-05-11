@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Finders Keepers Mapleton - Consignment Shop</title>
+<meta name="description" content="Finders Keepers is a family-owned consignment shop in Mapleton, Iowa - curated clothing, accessories, home décor, and unique finds." />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 100px);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    background: var(--warm-white);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    color: var(--brown-mid);
+    max-width: 380px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--charcoal);
+  }
+
+  /* ── SLIDESHOW ── */
+  .hero-slideshow {
+    position: absolute;
+    inset: 0;
+  }
+
+  @keyframes kenBurns {
+    from { transform: scale(1.06); }
+    to   { transform: scale(1); }
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    animation: kenBurns 7s ease-out forwards;
+  }
+
+  .hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(44,40,32,0.5) 0%, transparent 60%);
+  }
+
+  .hero-slide-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #EDE8E0;
+    text-shadow: 0 1px 6px rgba(44,40,32,0.55), 0 2px 16px rgba(44,40,32,0.35);
+    padding: 0 2rem;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+
+  .hero-slide-caption.caption-dark {
+    color: var(--gold);
+    text-shadow: none;
+  }
+
+  .hero-slide-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .slide-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(237,232,224,0.4);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .slide-dot.active { background: var(--gold); }
+
+  /* ── FEATURE STRIP ── */
+  .feature-strip {
+    background: var(--gold);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--warm-white);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .feature-item::before {
+    content: '✦';
+    font-size: 0.6rem;
+    opacity: 0.7;
+  }
+
+  /* ── ABOUT PREVIEW ── */
+  .home-about {
+    background: var(--warm-white);
+  }
+
+  .home-about .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .home-about p {
+    font-size: 0.95rem;
+    color: var(--brown-mid);
+    margin-bottom: 1.25rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .pillar {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .pillar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(44, 40, 32, 0.07);
+    border-color: var(--border-strong);
+  }
+
+  .pillar h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.35rem;
+  }
+
+  .pillar p {
+    font-size: 0.8rem;
+    color: var(--brown-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .pillar-icon {
+    font-size: 1.25rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 6rem 4rem;
+  }
+
+  .cta-banner .section-title { color: #EDE8E0; }
+
+  .cta-banner p {
+    font-size: 0.95rem;
+    color: var(--brown-light);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .cta-banner .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── HOURS PREVIEW ── */
+  .hours-preview {
+    background: var(--cream);
+  }
+
+  .hours-preview .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  .hours-table tr { border-bottom: 1px solid var(--border); }
+
+  .hours-table td {
+    padding: 0.85rem 0;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+  }
+
+  .hours-table td:last-child {
+    text-align: right;
+    color: var(--brown-mid);
+  }
+
+  .contact-quick {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--warm-white);
+  }
+
+  .contact-row-icon {
+    font-size: 1rem;
+    width: 30px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .contact-row-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-row-value {
+    font-size: 0.88rem;
+    color: var(--charcoal);
+  }
+
+  .contact-row-value a {
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  /* ── MAP ── */
+  .map-section { background: var(--charcoal); }
+  .map-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 4rem; }
+  .map-embed {
+    width: 100%;
+    height: 380px;
+    border: 1px solid rgba(184,154,106,0.2);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 260px; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .home-about .section-inner,
+    .hours-preview .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .feature-strip { gap: 1.5rem; padding: 1.25rem 1.5rem; }
+    .map-inner { padding: 3rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .pillars { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Finders Keepers Mapleton" /></a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">How It Works</a></li>
+    <li><a href="appointment.html">Book Appointment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap" style="padding-top:0;">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">
+        Where every<br>piece finds its<br><em>next story.</em>
+      </h1>
+      <p class="hero-subtitle">
+        There's nothing better than giving great clothes and useful pieces a second life. Swing by, browse a little, and see what gems you discover today.
+      </p>
+      <div class="hero-cta">
+        <a href="appointment.html" class="btn-primary">Book an Appointment</a>
+        <a href="consigning.html" class="btn-secondary">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-slideshow">
+        <div class="hero-slide active" style="background-image:url('images/FindersKeepers_UnderRenovation.jpg')">
+          <div class="hero-slide-overlay"></div>
+        </div>
+        <div class="hero-slide hero-slide-logo" style="background-image:url('images/logo-hires.png'); background-size:contain; background-repeat:no-repeat; background-color:var(--cream);">
+        </div>
+        <p class="hero-slide-caption">One person's treasure is another's most beloved find.</p>
+        <div class="hero-slide-dots">
+          <button class="slide-dot active" onclick="goToSlide(0)"></button>
+          <button class="slide-dot" onclick="goToSlide(1)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE STRIP -->
+  <div class="feature-strip">
+  </div>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="home-about">
+    <div class="section-inner">
+      <div>
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title"><em>Find it, Love it, Keep it!</em></h2>
+        <div class="divider"></div>
+        <p>Finders Keepers Mapleton was born from a belief that beautiful, well-made things deserve a second life - and that the right buyer is always out there, waiting to discover them.</p>
+        <p>We're a family-owned consignment store in the heart of Mapleton. We specialize in carefully selected clothing, accessories, home décor, and unique treasures.</p>
+        <br />
+        <a href="about.html" class="btn-secondary">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <p class="section-label" style="color:var(--gold-light);">Ready to Consign?</p>
+    <h2 class="section-title">Give your items<br>a <em>beautiful</em> new home.</h2>
+    <p>Schedule a drop-off appointment and our team will walk you through everything. We make the process simple, fair, and enjoyable.</p>
+    <div class="btn-group">
+      <a href="appointment.html" class="btn-primary">Book an Appointment</a>
+      <a href="consigning.html" class="btn-secondary" style="color:var(--gold-light); border-color:rgba(184,154,106,0.4);">See How It Works</a>
+    </div>
+  </section>
+
+  <!-- HOURS + CONTACT PREVIEW -->
+  <section class="hours-preview">
+    <div class="section-inner">
+      <div>
+        <p class="section-label">Store Hours</p>
+        <h2 class="section-title">Come <em>visit</em> us</h2>
+        <div class="divider"></div>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>10:00 AM – 5:00 PM</td></tr>
+          <tr><td>Tuesday – Thursday</td><td>10:00 AM – 4:00 PM</td></tr>
+          <tr><td>Friday</td><td>10:00 AM – 5:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 1:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="section-label">Find Us</p>
+        <h2 class="section-title">We're in<br><em>Mapleton</em></h2>
+        <div class="divider"></div>
+        <div class="contact-quick">
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M12 2C8.686 2 6 4.686 6 8c0 5.5 6 12 6 12s6-6.5 6-12c0-3.314-2.686-6-6-6z"/><circle cx="12" cy="8" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Address</div>
+              <div class="contact-row-value">114 N 4th Street, Suite A, Mapleton, IA 51034</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.06 4.84 2 2 0 012 2.7h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 17z"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Phone</div>
+              <div class="contact-row-value"><a href="tel:+17128810208">(712) 881-0208</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-dark)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Email</div>
+              <div class="contact-row-value"><a href="mailto:finderskeepersmapleton@gmail.com">finderskeepersmapleton@gmail.com</a></div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <a href="contact.html" class="btn-secondary">Full Contact Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="map-inner">
+      <p class="section-label" style="color:var(--gold-light);">Location</p>
+      <h2 class="section-title" style="color:#EDE8E0;">Find us in <em>Mapleton</em></h2>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962!2d-95.7930656!3d42.1666277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8792616080808529%3A0x8f4561260641b2c!2sFinders%20Keepers%20Consignment!5e0!3m2!1sen!2sus!4v1711900000000!5m2!1sen!2sus"
+          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Finders Keepers</div>
+    <div class="footer-tagline">Consignment Shop - Mapleton, Iowa</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="consigning.html">Consigning</a></li>
+    <li><a href="appointment.html">Appointments</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Finders Keepers Mapleton</div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+  var currentSlide = 0;
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.slide-dot');
+  var caption = document.querySelector('.hero-slide-caption');
+
+  function goToSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+    currentSlide = n;
+    slides[currentSlide].classList.add('active');
+    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+    caption.classList.toggle('caption-dark', slides[currentSlide].classList.contains('hero-slide-logo'));
+  }
+
+  if (slides.length > 1) {
+    setInterval(function() {
+      goToSlide((currentSlide + 1) % slides.length);
+    }, 4000);
+  }
+</script>
+</body>
+</html>
