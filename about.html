@@ -243,6 +243,8 @@
     overflow: hidden;
   }
 
+  .numbers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+
   @media (max-width: 900px) {
     .page-hero { padding: 5rem 1.5rem 3rem; }
     .story-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -253,6 +255,11 @@
 
   @media (max-width: 600px) {
     .accept-grid { grid-template-columns: 1fr; }
+    .numbers-grid { grid-template-columns: 1fr 1fr; }
+    .page-hero { padding: 3.5rem 1.25rem 2rem; }
+    .map-inner { padding: 2rem 1.25rem; }
+    .map-embed { height: 240px; }
+    .story-quote p { font-size: 1.2rem; }
   }
 </style>
 </head>
@@ -305,7 +312,7 @@
         </div>
         <div style="padding: 2rem; border: 1px solid var(--border); background: var(--cream);">
           <p class="section-label">By the Numbers</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1rem;">
+          <div class="numbers-grid">
             <div>
               <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1;">100%</div>
               <div style="font-size:0.78rem; color:var(--brown-mid); margin-top:0.25rem;">Locally owned &amp; operated</div>

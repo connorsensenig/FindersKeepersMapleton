@@ -92,6 +92,8 @@
     font-size: 1rem;
     color: var(--charcoal);
     line-height: 1.5;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .card-value a {
@@ -181,6 +183,13 @@
     .contact-section .section-inner { grid-template-columns: 1fr; gap: 3rem; }
     .map-inner { padding: 3rem 1.5rem; }
     .contact-cta { padding: 4rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .page-hero { padding: 3.5rem 1.25rem 2rem; }
+    .contact-cta { padding: 2.5rem 1.25rem; }
+    .map-inner { padding: 2rem 1.25rem; }
+    .map-embed { height: 240px; }
   }
 </style>
 </head>
