@@ -383,15 +383,32 @@
     </div>
     <div class="hero-right">
       <div class="hero-slideshow">
-        <div class="hero-slide active" style="background-image:url('images/FindersKeepers_UnderRenovation.jpg')">
+        <div class="hero-slide active" style="background-image:url('images/StoreFront.JPEG')">
           <div class="hero-slide-overlay"></div>
         </div>
-        <div class="hero-slide hero-slide-logo" style="background-image:url('images/logo-hires.png'); background-size:contain; background-repeat:no-repeat; background-color:var(--cream);">
+        <div class="hero-slide" style="background-image:url('images/FrontCounter.JPEG')">
+          <div class="hero-slide-overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image:url('images/IMG_6071.JPEG')">
+          <div class="hero-slide-overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image:url('images/FullSizeRender-5.JPEG')">
+          <div class="hero-slide-overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image:url('images/Sink.JPEG')">
+          <div class="hero-slide-overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image:url('images/IMG_0356.JPEG')">
+          <div class="hero-slide-overlay"></div>
         </div>
         <p class="hero-slide-caption">One person's treasure is another's most beloved find.</p>
         <div class="hero-slide-dots">
           <button class="slide-dot active" onclick="goToSlide(0)"></button>
           <button class="slide-dot" onclick="goToSlide(1)"></button>
+          <button class="slide-dot" onclick="goToSlide(2)"></button>
+          <button class="slide-dot" onclick="goToSlide(3)"></button>
+          <button class="slide-dot" onclick="goToSlide(4)"></button>
+          <button class="slide-dot" onclick="goToSlide(5)"></button>
         </div>
       </div>
     </div>
@@ -527,7 +544,7 @@
     currentSlide = n;
     slides[currentSlide].classList.add('active');
     if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-    caption.classList.toggle('caption-dark', slides[currentSlide].classList.contains('hero-slide-logo'));
+    caption.classList.remove('caption-dark');
   }
 
   if (slides.length > 1) {
