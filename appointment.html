@@ -122,6 +122,47 @@
     height: 700px;
   }
 
+  /* ── COMING SOON PLACEHOLDER ── */
+  .appt-coming-soon {
+    border: 1px solid var(--border);
+    background: var(--warm-white);
+    padding: 4rem 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+  }
+
+  .appt-coming-soon .cs-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+
+  .appt-coming-soon .cs-label em { font-style: italic; color: var(--gold); }
+
+  .appt-coming-soon p {
+    font-size: 1rem;
+    color: var(--brown-mid);
+    max-width: 380px;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .appt-coming-soon .cs-phone {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    color: var(--gold-dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .appt-coming-soon .cs-phone:hover { color: var(--gold); }
+
   @media (max-width: 900px) {
     .page-hero { padding: 5rem 1.5rem 3rem; }
     .appt-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -158,7 +199,8 @@
     <div class="page-hero-inner">
       <p class="section-label" style="color:var(--gold-light);">Schedule a Visit</p>
       <h1>Book a <em>consign</em><br>appointment</h1>
-      <p>Pick a time that works for you - booking is instant and you'll receive a confirmation right away.</p>
+      <!-- <p>Pick a time that works for you - booking is instant and you'll receive a confirmation right away.</p> -->
+      <p>Online booking is coming soon. To schedule an appointment, please give us a call at <a href="tel:+17128810208" style="color:var(--gold-light); text-decoration:none;">(712) 881-0208</a>.</p>
     </div>
   </div>
 
@@ -202,14 +244,23 @@
         </div>
       </div>
 
-      <!-- CALENDLY EMBED -->
+      <!-- CALENDLY EMBED (temporarily disabled - coming soon) -->
+      <!--
       <div class="calendly-wrap">
         <div
           class="calendly-inline-widget"
           data-url="https://calendly.com/finderskeepersmapleton/finders-keepers-appointment"
-          
+
           data-primary-color="B89A6A">
         </div>
+      </div>
+      -->
+
+      <!-- COMING SOON -->
+      <div class="appt-coming-soon">
+        <div class="cs-label"><em>Coming</em> soon</div>
+        <p>Online booking is on its way. For current appointments, please give us a call and we'll get you scheduled.</p>
+        <a href="tel:+17128810208" class="cs-phone">(712) 881-0208</a>
       </div>
 
     </div>
@@ -232,6 +283,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- <script src="https://assets.calendly.com/assets/external/widget.js" async></script> -->
 </body>
 </html>
